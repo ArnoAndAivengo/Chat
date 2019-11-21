@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { Button } from 'components';
+import { Route } from 'react-router-dom'
+
+import { Auth, Home } from 'pages';
 
 class App extends Component {
   render() {
     return (
       <div className="wrapper">
-        <h1>Hello</h1>
-        <Button type="primary" size="large">Button</Button>
+        <Route exact path={["/", "/login", "/register"]} component={Auth}/>
+        <Route exact path={"/im"} component={Home}/>
       </div>
     );
   }
