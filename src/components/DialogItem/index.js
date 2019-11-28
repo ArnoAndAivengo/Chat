@@ -3,10 +3,10 @@ import classNames from 'classnames'
 import format from 'date-fns/format'
 import isToday from 'date-fns/isToday'
 
-import { MessageStatus } from '../'
+import { MessageStatus, Avatar } from '../'
 
 import "./DialogItem.scss"
-// <Time date={message.created_at} />
+
 const getMessageTime = created_at => {
     if (isToday(created_at)) {
         return format(created_at, 'HH:mm')
@@ -15,32 +15,18 @@ const getMessageTime = created_at => {
     }
 };
 
-const getAvatar = avatar => {
-    if ( avatar ) {
-        return (
-            <img src="http://pm1.narvii.com/6889/74979d4d2744ec6e27995b6e866f091d04c0b40cr1-515-414v2_uhq.jpg"
-                 alt=""
-            />
-        )
-    } else {
-       //
-    }
-};
-
-const DialogItem = ({ user, message, unreaded, isMe }) =>
+const DialogItem = ({ message, unreaded, created_at, text, isMe }) =>
     <div className={classNames("dialogs__item", {
-        "dialogs__item--online": user.isOnline
+        "dialogs__item--online": message.user.isOnline
     })}>
         <div className="dialogs__item-avatar">
-            {/*<img src={user.avatar} alt={`${user.fullname} avatar`}/>*/}
-            { getAvatar(user.avatar) }
-
+            <Avatar user={message.user} />
         </div>
         <div className="dialogs__item-info">
             <div className="dialogs__item-info-top">
-                <b>Алесандр Пушкин</b>
+                <b>{message.user.fullname}</b>
                 <span>
-                    {getMessageTime(message.created_at)}
+                    { getMessageTime(message.created_at) }
                 </span>
             </div>
             <div className="dialogs__item-info-bottom">

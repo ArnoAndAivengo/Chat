@@ -1,20 +1,19 @@
 import React from 'react';
-import classNames from 'classnames'
+import orderBy from 'lodash/orderBy'
 
 import { DialogItem } from '../'
 
 import "./Dialogs.scss"
 
-const Dialogs = ({ item, userId }) => (
+const Dialogs = ({ items, userId }) => (
 
     <div className="dialogs">
-        {item.map(item => (
+        {orderBy( items, ["created_at"], ["desc"] ).map(item => (
+
             <DialogItem
                 key={item._id}
-                user={item.message.user}
-                message={item.message}
-                unreaded={0}
                 isMe={item.message.user._id === userId}
+                {...item}
             />
         ))}
     </div>

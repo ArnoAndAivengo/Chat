@@ -13,12 +13,9 @@ const RegisterForm = props => {
         values,
         touched,
         errors,
-        isSubmitting,
         handleChange,
         handleBlur,
         handleSubmit,
-        handleReset,
-        dirty,
     } = props;
     return (
         <div>
