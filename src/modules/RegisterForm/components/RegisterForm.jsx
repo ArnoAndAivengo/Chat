@@ -3,6 +3,7 @@ import { Form, Icon, Input } from "antd";
 import { Link } from 'react-router-dom'
 
 import { Button, Block } from "components";
+import { validateField } from "../../../utils/helpers";
 
 const success = false;
 
@@ -29,7 +30,7 @@ const RegisterForm = props => {
 
                 { !success ?
                     <Form onSubmit={handleSubmit} className="login-form">
-                        <Form.Item validateStatus={ !touched.email ? "" : errors.email ? "error" : "success"}
+                        <Form.Item validateStatus={validateField('email', touched, errors)}
                                    help={ !touched.email ? "" : errors.email }
                                    hasFeedback>
                             <Input
@@ -47,11 +48,11 @@ const RegisterForm = props => {
                             <Input
                                 prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
                                 size="large"
-                                type="user"
+                                type="fullname"
                                 placeholder="Ваше имя"
                             />
                         </Form.Item>
-                        <Form.Item validateStatus={ !touched.password ? "" : errors.password ? "error" : "success"}
+                        <Form.Item validateStatus={validateField('password', touched, errors)}
                                    help={ !touched.password ? "" : errors.password }
                                    hasFeedback>
                             <Input
@@ -65,12 +66,12 @@ const RegisterForm = props => {
                                 value={values.password}
                             />
                         </Form.Item>
-                        <Form.Item validateStatus={ !touched.password ? "" : errors.password ? "error" : "success"}
+                        <Form.Item validateStatus={validateField('password', touched, errors)}
                                    hasFeedback>
                             <Input
                                 prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                                 size="large"
-                                type="password"
+                                type="password2"
                                 placeholder="Повторите Пароль"
                             />
                         </Form.Item>
@@ -78,7 +79,6 @@ const RegisterForm = props => {
                             <Button onClick={handleSubmit}
                                     type="primary"
                                     htmlType="submit"
-                                    size="large"
                                     className="btn login-form-button">
                                 Зарегестрироваться
                             </Button>
