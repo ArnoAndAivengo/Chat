@@ -1,12 +1,22 @@
 @import "~styles/variables";
 
 .dialogs {
-  width: 300px;
+  &__search {
+    padding: 15px 20px;
+    border-bottom: 1px solid lightgray;
+    .ant-input {
+      background-color: #f7f8f9;
+      border: 0;
+      height: 38px;
+      padding: 4px 11px 6px;
+    }
+  }
 
   &__item {
+    $item: &;
     display: flex;
     margin-bottom: 20px;
-    $item: &;
+
     &-avatar {
       position: relative;
       flex: 0 0 40px;

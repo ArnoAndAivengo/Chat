@@ -1,0 +1,31 @@
+.chat-input {
+  display: flex;
+  padding: 20px;
+  background-color: #d8e3fa;
+  border-top: 1px solid lightgray;
+  &__smile-btn,
+  &__actions {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+    align-items: center;
+    width: 70px;
+  }
+
+  &__smile-btn {
+    width: 40px;
+  }
+  .ant-btn-circle {
+    i.anticon {
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+  }
+
+  input {
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
