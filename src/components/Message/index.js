@@ -8,7 +8,7 @@ import waveSvg from 'assets/img/wave.svg'
 import playSvg from 'assets/img/play.svg'
 import pauseSvg from 'assets/img/pause.svg'
 
-import { Time, MessageStatus } from '../'
+import { Time, MessageStatus, Avatar } from '../'
 
 import "./Message.scss";
 
@@ -104,9 +104,9 @@ const Message = ({
         })}
         >
             <div className="message__content">
-                <MessageStatus isMe={isMe} isReaded={isReaded} />
+                {/*<MessageStatus isMe={isMe} isReaded={isReaded} />*/}
                 <div className="message__avatar">
-                    <img src={avatar} alt={`Avatar ${user.fullname}`} />
+                    <Avatar user={user}/>
                 </div>
                 <div className="message__info">
                     {( audio || text || isTyping ) && (

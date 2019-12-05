@@ -6,7 +6,7 @@ import noReadedSvg from 'assets/img/noreaded.svg'
 import "./MessageStatus.scss"
 
 const MessageStatus = ({ isMe, isReaded }) =>
-    isMe &&
+    !isMe &&
     ( isReaded ? (
         <img className="message__icon-readed" src={readedSvg} alt="Readed icon" />
     ) : (

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Icon, Input, Button } from 'antd';
-import { Messages, Status, ChatInput } from 'components';
-import { Dialogs } from 'containers';
-
-import dialogsJSON from '../../utils/dialogs.json'
+import { Icon, Button } from 'antd';
+import { Status, ChatInput } from 'components';
+import { Dialogs, Messages } from 'containers';
 
 import "./Home.scss"
 
@@ -22,10 +20,7 @@ class Home extends Component {
                             <Button shape="circle" type="link" icon="form"/>
                         </div>
                         <div className="chat__sidebar-dialogs">
-                            <Dialogs
-                                userId={0}
-                                items={dialogsJSON}
-                            />
+                            <Dialogs userId={0} />
                         </div>
                     </div>
                     <div className="chat__dialog">

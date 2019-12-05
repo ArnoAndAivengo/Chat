@@ -3,6 +3,11 @@
   padding: 20px;
   background-color: #d8e3fa;
   border-top: 1px solid lightgray;
+
+  &__emoji-picker {
+    position: absolute;
+    bottom: 50px;
+  }
   &__smile-btn,
   &__actions {
     display: flex;
@@ -10,6 +15,16 @@
     padding: 5px;
     align-items: center;
     width: 70px;
+    &-upload-btn {
+      input {
+        cursor: pointer;
+      }
+      &:hover {
+        button {
+          opacity: 1;
+        }
+      }
+    }
   }
 
   &__smile-btn {
